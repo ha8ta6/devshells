@@ -1,0 +1,60 @@
+name: "🐞 Trouble"
+description: "Report a trouble"
+labels: ["about: trouble"]
+
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        > [!IMPORTANT]
+        > - Please describe all sections, including the title, concisely and clearly
+        >
+        > - If you find it difficult to explain in words, please explain with pictures, diagrams, codes, etc
+        >
+        > - There is no need for prefix in the title (e.g., Bug:, Feature:) as we will categorize issues using labels
+
+  - type: "textarea"
+    id: "description"
+    attributes:
+      label: "📝 Description"
+      description: "Please explain what kind of trouble occurred."
+    validations:
+      required: true
+
+  - type: "textarea"
+    id: "environment"
+    attributes:
+      label: "🖥️ Environment"
+      description: "Please provide information about the environment in which the trouble occurred."
+    validations:
+      required: true
+
+  - type: "textarea"
+    id: "steps-to-reproduce"
+    attributes:
+      label: "🔁 Steps to reproduce"
+      description: "Please explain the steps to reproduce the trouble."
+    validations:
+      required: true
+
+  - type: "textarea"
+    id: "expected-behavior"
+    attributes:
+      label: "✨ Expected behavior"
+      description: "Please explain the expected behavior."
+    validations:
+      required: true
+
+  - type: "textarea"
+    id: "additional-comments"
+    attributes:
+      label: "📌 Additional comments"
+      description: "If you have anything additional to convey, please write it here."
+      value: "None"
+    validations:
+      required: true
+
+  - type: "markdown"
+    attributes:
+      value: |
+        🥰 **Thank you for your cooperation in improving the repository! Great job!**
