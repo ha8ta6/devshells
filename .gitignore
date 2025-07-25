@@ -6,3 +6,6 @@ result-*
 
 # Ignore automatically generated direnv output.
 .direnv
+
+# Ignore automatically generated git-hooks.nix output.
+/.pre-commit-config.yaml

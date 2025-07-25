@@ -4,19 +4,28 @@
   outputs =
     inputs@{
       flake-parts,
+      pre-commit,
       systems,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       perSystem =
         {
+          config,
           pkgs,
           ...
         }:
         {
           devShells.default = pkgs.mkShellNoCC {
+            shellHook = ''
+              ${config.pre-commit.installationScript}
+            '';
           };
         };
+
+      imports = [
+        pre-commit.flakeModule
+      ];
 
       # Used nix-systems to improve maintainability and readability.
       # If you want to change the supported systems, change `inputs.systems.url`.
@@ -31,8 +40,19 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    pre-commit = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+
     systems = {
       url = "github:nix-systems/x86_64-linux";
+      flake = false;
+    };
+
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
       flake = false;
     };
   };
