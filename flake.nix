@@ -32,7 +32,7 @@
     };
 
     systems = {
-      url = "github:nix-systems/default-linux";
+      url = "github:nix-systems/x86_64-linux";
       flake = false;
     };
   };
