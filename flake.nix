@@ -21,6 +21,16 @@
               ${config.pre-commit.installationScript}
             '';
           };
+
+          pre-commit.settings.hooks = {
+            nixfmt-tree = {
+              enable = true;
+              name = "nixfmt-tree";
+              description = "Format the Nix files.";
+              entry = "${pkgs.nixfmt-tree}/bin/treefmt";
+              files = "\\.nix$";
+            };
+          };
         };
 
       imports = [
