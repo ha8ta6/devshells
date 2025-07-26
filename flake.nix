@@ -46,13 +46,22 @@
             prettier = {
               enable = true;
               description = "Format the Markdown files.";
-              files = "\\.md$";
+              files = "\\.(yml|yaml|md)$";
+              excludes = [ ".pre-commit-config.yaml" ];
             };
 
             markdownlint = {
               enable = true;
               description = "Detects anti-patterns in Markdown files.";
               entry = "${pkgs.markdownlint-cli}/bin/markdownlint --disable MD033 MD041 --";
+              after = [ "prettier" ];
+            };
+
+            yamllint = {
+              enable = true;
+              description = "Detects anti-patterns in YAML files.";
+              entry = "{pkgs.yamllint}/bin/yamllint -sd \"{rules: {line-length: {max: 120}, document-start: disable}}\"";
+              excludes = [ ".pre-commit-config.yaml" ];
               after = [ "prettier" ];
             };
           };
