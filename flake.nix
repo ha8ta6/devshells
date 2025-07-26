@@ -46,7 +46,8 @@
             prettier = {
               enable = true;
               description = "Format the Markdown files.";
-              files = "\\.md$";
+              files = "\\.(yml|yaml|md)$";
+              excludes = [ ".pre-commit-config.yaml" ];
             };
 
             markdownlint = {
