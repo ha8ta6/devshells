@@ -42,6 +42,19 @@
               description = "Detects unused variables in Nix files.";
               after = [ "nixfmt-tree" ];
             };
+
+            prettier = {
+              enable = true;
+              description = "Format the Markdown files.";
+              files = "\\.md$";
+            };
+
+            markdownlint = {
+              enable = true;
+              description = "Detects anti-patterns in Markdown files.";
+              entry = "${pkgs.markdownlint-cli}/bin/markdownlint --disable MD033 MD041 --";
+              after = [ "prettier" ];
+            };
           };
         };
 
