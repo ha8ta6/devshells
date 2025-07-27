@@ -47,7 +47,6 @@
               enable = true;
               description = "Format the Markdown files.";
               files = "\\.(yml|yaml|md)$";
-              excludes = [ ".pre-commit-config.yaml" ];
             };
 
             markdownlint = {
@@ -61,7 +60,6 @@
               enable = true;
               description = "Detects anti-patterns in YAML files.";
               entry = "{pkgs.yamllint}/bin/yamllint -sd \"{rules: {line-length: {max: 120}, document-start: disable}}\"";
-              excludes = [ ".pre-commit-config.yaml" ];
               after = [ "prettier" ];
             };
           };
