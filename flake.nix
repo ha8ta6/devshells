@@ -45,7 +45,7 @@
 
             prettier = {
               enable = true;
-              description = "Format the Markdown files.";
+              description = "Format the YAML and Markdown files.";
               files = "\\.(yml|yaml|md)$";
             };
 
