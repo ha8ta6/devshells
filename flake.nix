@@ -43,6 +43,11 @@
               after = [ "nixfmt-tree" ];
             };
 
+            taplo = {
+              enable = true;
+              description = "Format the TOML files.";
+            };
+
             prettier = {
               enable = true;
               description = "Format the YAML and Markdown files.";
