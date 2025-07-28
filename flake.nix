@@ -59,7 +59,7 @@
             yamllint = {
               enable = true;
               description = "Detects anti-patterns in YAML files.";
-              entry = "{pkgs.yamllint}/bin/yamllint -sd \"{rules: {line-length: {max: 120}, document-start: disable}}\"";
+              entry = "${pkgs.yamllint}/bin/yamllint -sd \"{rules: {line-length: {max: 120}, document-start: disable}}\"";
               after = [ "prettier" ];
             };
           };
