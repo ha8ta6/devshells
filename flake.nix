@@ -43,6 +43,17 @@
               after = [ "nixfmt-tree" ];
             };
 
+            taplo = {
+              enable = true;
+              description = "Format the TOML files.";
+            };
+
+            check-toml = {
+              enable = true;
+              description = "Detects anti-patterns in TOML files.";
+              after = [ "taplo" ];
+            };
+
             prettier = {
               enable = true;
               description = "Format the YAML and Markdown files.";
