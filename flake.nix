@@ -18,6 +18,7 @@
         {
           devShells.default = pkgs.mkShellNoCC {
             shellHook = ''
+              # Sets up pre-commit hook.
               ${config.pre-commit.installationScript}
             '';
           };
